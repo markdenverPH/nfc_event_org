@@ -1,0 +1,18 @@
+<?php
+$host = "127.0.0.1";
+$user = "root";
+$pass="";
+$dbname="event_org";
+$con = mysqli_connect($host, $user, $pass, $dbname);
+
+$name = $_POST['name'];
+$description = $_POST['desc'];
+$price = $_POST['price'];
+
+$sql="INSERT INTO tblitem(name, price, description) VALUES 
+		('$name','$price','$description')";
+if(!mysqli_query($con, $sql)){
+	die('Error: '.mysqli.error($con));
+}
+mysqli_close($con);
+?>

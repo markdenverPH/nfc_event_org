@@ -1,0 +1,24 @@
+<?php
+$host = "127.0.0.1";
+$user = "root";
+$pass="";
+$dbname="event_org";
+$con = mysqli_connect($host, $user, $pass, $dbname);
+
+$event_name = $_POST['event_name'];
+$org_name = $_POST['org_name'];
+$start_date = $_POST['start_date'];
+$end_date = $_POST['end_date'];
+$time = $_POST['time'];
+$event_desc = $_POST['event_desc'];
+$stud_attend = $_POST['stud_attend'];
+
+$sql="INSERT INTO tblitem(event_name, org_name, start_date,
+		end_date, time, event_desc, stud_attend) VALUES 
+		('$event_name','$org_name','$start_date','$end_date',
+				'$time','$event_desc')";
+if(!mysqli_query($con, $sql)){
+	die('Error: '.mysqli_error($con));
+}
+mysqli_close($con);
+?>
